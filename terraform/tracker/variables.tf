@@ -1,8 +1,8 @@
-variable "tracker_ddb__settings" {
+variable "tracker_ddb_settings" {
   type = object({
-    billing_mode = String
-    read_capacity = Number
-    write_capacity = Number
+    billing_mode = string
+    read_capacity = number
+    write_capacity = number
   })
   default = {
     billing_mode = "PROVISIONED"
@@ -11,6 +11,6 @@ variable "tracker_ddb__settings" {
   }
 }
 variable "env" {
-  type: string
-  default: "prod"
+  type= string
+  default= "prod"
 }
