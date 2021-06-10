@@ -1,0 +1,31 @@
+spring:
+    profiles:
+        group:
+            dev:
+                - "aws"
+            prod:
+                - "aws"
+            test:
+                - "jpa"
+        active: prod
+    datasource:
+        driver-class-name: org.h2.Driver
+        password: ''
+        url: jdbc:h2:file:./build/db/personal;DB_CLOSE_DELAY=-1
+        username: sa
+    h2:
+        console:
+            enabled: true
+            path: /h2-console
+            settings:
+                trace: false
+                web-allow-others: false
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        hibernate:
+            ddl-auto: update
+
+aws:
+    url:
+    region: us-east-1
+
