@@ -16,13 +16,13 @@ class RecordTracker @Autowired constructor(val storageAdapter: StorageAdapter){
     }
 
     fun addSuspense(request: String,eventDate:LocalDateTime= LocalDateTime.now()) {
-        storageAdapter!!.addSuspense(RecordSuspenseModel(eventDate,request))
+        storageAdapter!!.addSuspense(RecordSuspenseModel(eventDate = eventDate,rawRequest = request))
     }
 
-    fun allTrackingRecords(): List<RecordDetailsModel> {
+    fun allTrackingRecords(): List<RecordDetailsModel>? {
         return storageAdapter!!.findAllRecords()
     }
-    fun allTrackingSuspense(): List<RecordSuspenseModel> {
+    fun allTrackingSuspense(): List<RecordSuspenseModel>? {
         return storageAdapter!!.findAllSuspense()
     }
 }

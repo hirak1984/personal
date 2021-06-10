@@ -53,6 +53,6 @@ class JPAStorageAdapter(val recordDetailsJPARepository: RecordDetailsJPAReposito
     }
 
     override fun findAllSuspense(): List<RecordSuspenseModel> {
-        return recordSuspenseJPARepository.findAll().map { RecordSuspenseModel(it.eventDate,it.rawRequest) }
+        return recordSuspenseJPARepository.findAll().map { RecordSuspenseModel(it.id,it.eventDate,it.rawRequest) }
     }
 }

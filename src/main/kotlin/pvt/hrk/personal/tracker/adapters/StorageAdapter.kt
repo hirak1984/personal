@@ -7,6 +7,6 @@ import java.time.LocalDateTime
 interface StorageAdapter {
     fun saveOrUpdate(model: RecordDetailsModel)
     fun addSuspense(recordSuspenseModel: RecordSuspenseModel)
-    fun findAllRecords(): List<RecordDetailsModel>
-    fun findAllSuspense(): List<RecordSuspenseModel>
+    fun findAllRecords(): List<RecordDetailsModel>?
+    fun findAllSuspense(): List<RecordSuspenseModel>?
 }

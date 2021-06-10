@@ -32,8 +32,8 @@ class RecordTrackingRestController @Autowired constructor(val recordTracker: Rec
     }
 
     @GetMapping("/tracker/records")
-    fun findAll(): List<Record> {
-        return recordTracker.allTrackingRecords().stream().map { recordDetailsModel: RecordDetailsModel ->
+    fun findAll(): List<Record>? {
+        return recordTracker.allTrackingRecords()?.map { recordDetailsModel: RecordDetailsModel ->
             val record = Record()
             if(recordDetailsModel.amountUnit==SupportedUnit.NULL){
                 record.amount = "${recordDetailsModel.amount} ${recordDetailsModel.amountUnit}"
@@ -45,14 +45,14 @@ class RecordTrackingRestController @Autowired constructor(val recordTracker: Rec
             record.eventDate = recordDetailsModel.eventDate!!.format(DateTimeFormatter.ofPattern("dd-MM-yy HH:mm"))
             record.remarks = recordDetailsModel.remarks
             record
-        }.collect(Collectors.toList())
+        }
 
     }
     @GetMapping("/tracker/suspense")
-    fun findAllSuspense(): List<String> {
-        return recordTracker.allTrackingSuspense().stream().map { model: RecordSuspenseModel ->
+    fun findAllSuspense(): List<String>? {
+        return recordTracker.allTrackingSuspense()?.map { model: RecordSuspenseModel ->
            "${model.eventDate} --> ${model.rawRequest}"
-        }.collect(Collectors.toList())
+        }
 
     }
 
