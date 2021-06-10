@@ -5,8 +5,8 @@ This application is also a kitchen sink where I try various new technologies/ me
 
 Setting up this application in `PROD` mode from scratch requires two steps in order:
 
-#1. Provision resources.
-###[terraform](./terraform/README.md)
+#1. Provision resources. 
+[terraform](./terraform/README.md)
 
 #2. Run the Spring Boot application
 
